@@ -17,8 +17,8 @@ export const parkMongoStore = {
     await Park.deleteMany({});
   },
 
-  async getAllParks() {
-    const parks = await Park.find().lean();
+  async getParks(parkName, countyName, lat, lng) {
+    const parks = await Park.find().populate(parkName).populate(countyName).populate(lat).populate(lng).lean();
     return parks;
   },
 };

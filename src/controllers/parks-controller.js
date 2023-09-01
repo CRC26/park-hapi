@@ -3,13 +3,13 @@ import { db } from "../models/db.js";
 export const parksController = {
   index: {
     handler: async function (request, h) {
-      const parks = await db.parkStore.getAllParks();
+      const parks = await db.parkStore.getParks();
       return h.view("AddPark", { title: "Add a Park", parks: parks });
     },
   },
   report: {
     handler: async function (request, h) {
-      const parks = await db.parkStore.getAllParks();
+      const parks = await db.parkStore.getParks();
       return h.view("Report", {
         title: "Parks to Date",
         parks: parks,

@@ -38,7 +38,7 @@ export const parkService = {
     axios.defaults.headers.common.Authorization = "";
   },
 
-  async addParks(id, park) {
+  async addPark(id, park) {
     const response = await axios.post(`${this.parkUrl}/api/parks/${id}/parks`, park);
     return response.data;
   },

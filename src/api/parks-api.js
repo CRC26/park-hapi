@@ -7,7 +7,7 @@ export const parksApi = {
       strategy: "jwt",
     },
     handler: async function (request, h) {
-      const parks = db.parkStore.getAllParks();
+      const parks = db.parkStore.getParks();
       return parks;
       },
     },
