@@ -20,19 +20,43 @@ export const seedData = {
         password: "secret",
       },
     },
-parks: {
-  _model: "Park",
-  poppintree: {
-    parkName: "Poppintree",
-    countyName: "DCC",
-    lat: "53.3972",
-    lng: "6.2792",
-  },
-  herbert: {
-    parktName: "Herbert",
-    countyName: "SDCC",
-    lat: "53.3264",
-    lng: "6.2350",
-  },
- },
+    counties: {
+      _model: "County",
+      fingal: {
+        countyName: "fingal",
+      },
+      dcc: {
+        countyName: "dcc",
+      },
+      sdcc: {
+        countyName: "sdcc",
+      },
+    } ,
+    parks: {
+      _model: "Park",
+      one: {
+        parkName: "Poppintree",
+        rating: "3",
+        lat: "53.3972",
+        lng: "6.2792",
+        user: "->users.donald",
+        county: "->counties.dcc",
+      },
+      two: {
+        parktName: "Herbert",
+        rating: "5",
+        lat: "53.3264",
+        lng: "6.2350",
+        user: "->users.minnie",
+        county: "->counties.sdcc",
+      },
+      three: {
+        parktName: "Sanry",
+        rating: "4",
+        lat: "53.4015",
+        lng: "6.2513",
+        user: "->users.mickey",
+        county: "->counties.fingal",
+      },
+    },
 };

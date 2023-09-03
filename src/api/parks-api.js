@@ -7,26 +7,40 @@ export const parksApi = {
       strategy: "jwt",
     },
     handler: async function (request, h) {
-      const parks = db.parkStore.getParks();
+      const parks = db.parkStore.getAllParks();
       return parks;
-      },
     },
-
-addPark: {
-  auth: {
-    strategy: "jwt",
   },
-  handler: async function (request, h) {
-    const park = await db.parkStore.addPark(
+  findByCounty: {
+    auth: {
+      strategy: "jwt",
+    },
+    handler: async function (request, h) {
+      const parks = await db.parkStore.getParksByCandidate(request.params.id);
+      return parks;
+    },
+  },
+
+  makePark: {
+    auth: {
+      strategy: "jwt",
+    },
+    handler: async function (request, h) {
+      const county = await db.countyStore.findById(request.params.id);
+      if (!county) {
+        return Boom.notFound("No County with this id");
+      }
+      const park = await db.parkStore.addPark(
         request.payload.parkName,
-        request.payload.parkCounty,
+        request.payload.rating,
         request.payload.lat,
         request.payload.lng,
-    );
-      return park
-   },
+        request.auth.credentials,
+        county
+      );
+      return park;
+    },
   },
-
 
   deleteAll: {
     auth: {

@@ -1,13 +1,24 @@
 import { Park } from "./park.js";
 
 export const parkMongoStore = {
+  async getAllParks() {
+    const parks = await Park.find().populate("user").populate("county").lean();
+    return parks;
+  },
 
-  async addPark(parkName, countyName, lat, lng) {
+  async getParksByCounty(id) {
+    const parks = await Park.find({ county: id });
+    return parks;
+  },
+
+  async addPark(parkName, rating, lat, lng, user, county) {
     const newPark = new Park({
-    parkName,
-    countyName,
-    lat,
-    lng,
+      parkName,
+      rating,
+      lat,
+      lng,
+      user: user._id,
+      county: county._id,
     });
     await newPark.save();
     return newPark;
@@ -15,10 +26,5 @@ export const parkMongoStore = {
 
   async deleteAll() {
     await Park.deleteMany({});
-  },
-
-  async getParks(parkName, countyName, lat, lng) {
-    const parks = await Park.find().populate(parkName).populate(countyName).populate(lat).populate(lng).lean();
-    return parks;
   },
 };

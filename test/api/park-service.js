@@ -38,13 +38,18 @@ export const parkService = {
     axios.defaults.headers.common.Authorization = "";
   },
 
-  async addPark(id, park) {
-    const response = await axios.post(`${this.parkUrl}/api/parks/${id}/parks`, park);
+  async makePark(id, park) {
+    const response = await axios.post(`${this.parkUrl}/api/counties/${id}/parks`, park);
     return response.data;
   },
 
-  async getParks(id) {
-    const response = await axios.get(`${this.parkUrl}/api/parks/${id}/parks`);
+  async getparks(id) {
+    const response = await axios.get(`${this.parkUrl}/api/counties/${id}/parks`);
+    return response.data;
+  },
+
+  async createCounty(newCounty) {
+    const response = await axios.post(`${this.parkUrl}/api/counties`, newCounty);
     return response.data;
   },
 };

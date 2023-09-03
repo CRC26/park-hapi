@@ -32,18 +32,37 @@ export const testUsers = [
     password: "secret",
   },
 ];
+export const testCounties = [
+  {
+    countyName: "fingal",
   
+  },
+  {
+    countyName: "dcc",
+   
+  },
+  {
+    countyName: "sdcc",
+   
+  },
+];
 export const testParks = [
   {
     parkName: "poppintree",
-    countyName: "dcc",
-    lat: 53.3972,
-    lng: 6.2792,
+    rating: 4,
+    lat: "53.3972",
+    lng: "6.2792",
   },
   {
     parkName: "herbert",
-    countyName: "sdcc",
-    lat: 53.3264,
-    lng: 6.2350,
+    rating: 5,
+    lat: "53.3264",
+    lng:"6.2350",
+  },
+  {
+    parkName: "santry",
+    rating: 4,
+    lat: "53.4015",
+    lng: "6.2513",
   },
 ];

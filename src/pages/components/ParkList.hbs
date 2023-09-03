@@ -1,16 +1,23 @@
 </script>
 <table class="table is-fullwidth">
     <thead>
-       <th>Park Name</th>
-        <th>County Name</th>
+        <th>Park Name</th>
+        <th>Rating</th>
         <th>Latitude </th>
         <th>Longitude </th>
+        <th>User</th>
+        <th>County </th>
     </thead>
     <tbody>
-     {#each parkList as park}
-        <tr>
-          <td> {park} </td>
-        </tr>
-     {/each}
+     {{#each parks}}
+      <tr>
+        <td>{{parkName}}</td>
+        <td>{{rating}}</td>
+        <td>{{lat}}</td>
+        <td>{{lng}}</td>
+        <td> {{user.firstName}} {{user.lastName}} </td>
+        <td>{{county.countyName}}</td>
+      </tr>
+     {{/each}}
     </tbody>
 </table>

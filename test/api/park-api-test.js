@@ -1,9 +1,9 @@
 import { assert } from "chai";
 import { parkService } from "./park-service.js";
-import { daisy, testParks } from "../fixtures.js";
+import { daisy, testCounties, testParks } from "../fixtures.js";
 import { assertSubset } from "../test-utils.js";
 
-suite("park API tests", () => {
+suite("Park API tests", () => {
   setup(async () => {
     await parkService.createUser(daisy);
     await parkService.authenticate(daisy);
@@ -16,12 +16,10 @@ suite("park API tests", () => {
   });
 
   test("create a park", async () => {
-    const returnedPark= await parkService.addParks(testParks);
-    const response = await parkService.authenticate(testParks);
-    assert(response.success);
-    assert.isDefined(response.token);
-
+    const returnedCounty = await parkService.createCounty(testCounties[0]);
+    await parkService.makePark(returnedCounty._id, testParks[0]);
+    const returnedParks = await parkService.getParks(returnedCounty._id);
+    assert.equal(returnedParks.length, 1);
+    assertSubset(returnedParks[0], testParks[0]);
   });
 });
-
-

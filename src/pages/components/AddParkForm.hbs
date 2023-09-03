@@ -2,10 +2,14 @@
   <div class="field">
     <label for="parkName" class="label">Park Name</label>
     <input bind:value={parkName} id="parkName" class="input" type="text" placeholder="Enter park name" name="parkName">
-  </div>
-  <div class="field">
-    <label for="countyName" class="label"> County </label>
-    <input bind:value={countyName}  id="countyName" class="input" type="text" placeholder="Enter county name" name="countyName">
+ <div class="field">
+    <div class="control">
+      <input class="radio" type="radio" name="rating" value="1">Terrible
+      <input class="radio" type="radio" name="rating" value="2"> Disliked
+      <input class="radio" type="radio" name="rating" value="3"> Okay
+      <input class="radio" type="radio" name="rating" value="4"> Great
+      <input class="radio" type="radio" name="rating" value="5"> Loved
+    </div>
   </div>
   <div class="field">
     <label for="lat" class="label">Latitude</label>
@@ -16,6 +20,6 @@
      <input bind:value={lng} id="lng" class="input" type="lng" placeholder="Enter Longitude" name="lng">
   </div>
   <div class="field is-grouped">
-      <button on:click={addPark(parkName, countyName, lat, lng)} class="button is-link">Add Park</button>
+      <button on:click={addPark(parkName, rating, lat, lng)} class="button is-link">Add Park</button>
   </div>
 </form>

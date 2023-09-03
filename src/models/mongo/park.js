@@ -4,12 +4,16 @@ const { Schema } = Mongoose;
 
 const parkSchema = new Schema({
   parkName: String,
-  countyName: String,
-  lat: Number,
-  lng: Number,
-  reviewer: {
+  rating: Number,
+  lat: String,
+  lng: String,
+  user: {
     type: Schema.Types.ObjectId,
     ref: "User",
+  },
+  county: {
+    type: Schema.Types.ObjectId,
+    ref: "County",
   },
 });
 
