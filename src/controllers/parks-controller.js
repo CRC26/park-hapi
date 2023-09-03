@@ -22,7 +22,7 @@ export const parksController = {
         const loggedInUser = request.auth.credentials;
         const rawCounty = request.payload.county.split(",");
         const county = await db.countyStore.findByName(rawCounty[0], rawCounty[1]);
-        await db.parkStore.addPark(request.payload.parkName, request.payload.rating, request.payload.lat, request.payload.lng,loggedInUser._id, county._id);
+        await db.countyStore.addPark(request.payload.parkName, request.payload.rating, request.payload.lat, request.payload.lng, loggedInUser._id, county._id);
         return h.redirect("/report");
       } catch (err) {
         return h.view("main", { errors: [{ message: err.message }] });

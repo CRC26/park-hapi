@@ -2,7 +2,7 @@ import { Park } from "./park.js";
 
 export const parkMongoStore = {
   async getAllParks() {
-    const parks = await Park.find().populate("user").populate("county").lean();
+    const parks = await Park.find().populate("parkName").populate("rating").populate("lon").populate("lng").populate("user").populate("county").lean();
     return parks;
   },
 

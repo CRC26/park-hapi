@@ -19,7 +19,18 @@
      <label for="lng" class="label">Longitude</label>
      <input bind:value={lng} id="lng" class="input" type="lng" placeholder="Enter Longitude" name="lng">
   </div>
-  <div class="field is-grouped">
-      <button on:click={addPark(parkName, rating, lat, lng)} class="button is-link">Add Park</button>
+    <div class="field">
+    <div class="select">
+      <select name="county">
+        {{#each counties }}
+          <option> {{countyFirst}},{{countySecond}}</option>
+        {{/each}}
+      </select>
+    </div>
+  </div>
+  <div class="field">
+    <div class="control">
+      <button class="button is-link is-light">Add Park</button>
+    </div>
   </div>
 </form>

@@ -34,15 +34,18 @@ export const testUsers = [
 ];
 export const testCounties = [
   {
-    countyName: "fingal",
+    countyFirst: "fingal",
+    countySecond: "county ",
   
   },
   {
-    countyName: "dcc",
+    countyFirst: "dublin",
+    countySecond: "city ",
    
   },
   {
-    countyName: "sdcc",
+    countyFirst: "south",
+    countySecond: "dublin ",
    
   },
 ];
@@ -52,17 +55,23 @@ export const testParks = [
     rating: 4,
     lat: "53.3972",
     lng: "6.2792",
+    user: "->users.donald",
+    county: "->counties.fingal",
   },
   {
     parkName: "herbert",
     rating: 5,
     lat: "53.3264",
     lng:"6.2350",
+    user: "->users.donald",
+    county: "->counties.dublin",
   },
   {
     parkName: "santry",
     rating: 4,
     lat: "53.4015",
     lng: "6.2513",
+    user: "->users.donald",
+    county: "->counties.fingal",
   },
 ];

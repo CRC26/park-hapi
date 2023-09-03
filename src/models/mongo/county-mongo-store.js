@@ -11,9 +11,10 @@ export const countyMongoStore = {
     return county;
   },
 
-  async findByName(countyName) {
+  async findByName(countyFirst, countySecond) {
     const county = await County.findOne({
-      countyName,
+      countyFirst,
+      countySecond,
     });
     return county;
   },

@@ -16,7 +16,7 @@ export const parksApi = {
       strategy: "jwt",
     },
     handler: async function (request, h) {
-      const parks = await db.parkStore.getParksByCandidate(request.params.id);
+      const parks = await db.parkStore.getParksByCounty(request.params.id);
       return parks;
     },
   },

@@ -23,13 +23,16 @@ export const seedData = {
     counties: {
       _model: "County",
       fingal: {
-        countyName: "fingal",
+        countyFirst: "fingal",
+        countySecond: "council"
       },
       dcc: {
-        countyName: "dcc",
+        countyFirst: "dublin",
+        countySecond: "city",
       },
       sdcc: {
-        countyName: "sdcc",
+        countyFirst: "south",
+        countySecond: "dublin"
       },
     } ,
     parks: {
@@ -51,7 +54,7 @@ export const seedData = {
         county: "->counties.sdcc",
       },
       three: {
-        parktName: "Sanry",
+        parktName: "Santry",
         rating: "4",
         lat: "53.4015",
         lng: "6.2513",

@@ -9,14 +9,14 @@
         <th>County </th>
     </thead>
     <tbody>
-     {{#each parks}}
+     {{#each park}}
       <tr>
         <td>{{parkName}}</td>
         <td>{{rating}}</td>
         <td>{{lat}}</td>
         <td>{{lng}}</td>
         <td> {{user.firstName}} {{user.lastName}} </td>
-        <td>{{county.countyName}}</td>
+        <td>{{county.countyFirst}}{{county.countySecond}}</td>
       </tr>
      {{/each}}
     </tbody>
